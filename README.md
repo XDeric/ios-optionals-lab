@@ -287,6 +287,32 @@ if Bool.random() {
  myTuple.3 = 10
 }
 ```
+```
+var myTuple: (Int?, Int?, Int?, Int?)
+var sum = 0
+
+if Bool.random() {
+myTuple.0 = 5
+myTuple.2 = 14
+} else {
+myTuple.1 = 9
+myTuple.3 = 10
+}
+
+if let t0 = myTuple.0{
+sum += t0
+}
+if let t1 = myTuple.1{
+sum += t1
+}
+if let t2 = myTuple.2{
+sum += t2
+}
+if let t3 = myTuple.3{
+sum += t3
+}
+print(sum)
+```
 
 
 ## Question 13
@@ -563,6 +589,31 @@ Some students were asked some questions about their favorite foods and colors an
 - Create a new array of type `[(String, String, String)]` that contains the students with both favorite colors and foods.
 
 `let studentInfo: [(String, String?, String?)] = [("Bill", "Burgers", "Blue"), ("Rita", nil, "Red"), ("Peter", "Pizza", "Purple"), ("Sarah", "Sandwiches", nil), ("Jeff", nil, nil), ("Lucy", "Leftovers", "Lilac"), ("Mike", "Meat", "Mauve"), ("Gemma", nil, "Green")]`
+
+```
+var studentData: [(String?, String?, String?)] = []
+
+let studentInfo: [(String, String?, String?)] = [("Bill", "Burgers", "Blue"), ("Rita", nil, "Red"), ("Peter", "Pizza", "Purple"), ("Sarah", "Sandwiches", nil), ("Jeff", nil, nil), ("Lucy", "Leftovers", "Lilac"), ("Mike", "Meat", "Mauve"), ("Gemma", nil, "Green")]
+
+var noFaves = [String]()
+var noFavesColor = [String]()
+var faves = [String]()
+
+for info in studentInfo{
+if info.1 != nil && info.2 != nil {
+faves.append(info.0)
+}
+if info.2 == nil{
+noFavesColor.append(info.0)
+}
+if info.1 == nil && info.2 == nil {
+noFaves.append(info.0)
+}
+}
+print(noFavesColor)
+print(noFaves)
+print(faves)
+```
 
 
 ## Question 20
