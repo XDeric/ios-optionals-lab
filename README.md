@@ -137,7 +137,34 @@ var testCaseOne: (Int?, Int?, Int?)? = (4, nil, 7)
 var testCaseTwo: (Int?, Int?, Int?)? = (nil, nil, 9)
 var testCaseThree: (Int?, Int?, Int?)? = (5, 10, 24)
 ```
+```
+var scores: (Int?, Int?, Int?)?
 
+var testCaseOne: (Int?, Int?, Int?)? = (4, nil, 7)
+var testCaseTwo: (Int?, Int?, Int?)? = (nil, nil, 9)
+var testCaseThree: (Int?, Int?, Int?)? = (5, 10, 24)
+var sum = 0
+
+
+if let unwrapCaseOne = testCaseOne{
+if let s0 = unwrapCaseOne.0{
+sum += s0
+}
+}
+
+if let unwrapCaseOne = testCaseOne{
+if let s1 = unwrapCaseOne.1{
+sum += s1
+}
+}
+
+if let unwrapCaseOne = testCaseOne{
+if let s2 = unwrapCaseOne.2{
+sum += s2
+}
+}
+print(sum)
+```
 
 ## Question 8
 
@@ -147,6 +174,19 @@ Safely unwrap `tuple` if there’s a non-nil tuple value and print it out.
 var tuple: (Int, Int)?
 if Bool.random() {
  tuple = (5, 3)
+}
+```
+```
+var tuple: (Int, Int)?
+if Bool.random() {
+tuple = (5, 3)
+}
+
+if let unwrapT = tuple{
+print(unwrapT)
+}
+else{
+print("there is nil value")
 }
 ```
 
